@@ -12,6 +12,12 @@ Create a user that has enough rights to execute all the needed statements used t
 
 ```sql
 CREATE USER [github_action_user] WITH PASSWORD = 'S0meVery_Very+Str0ngPazzworD!';
+ALTER ROLE db_owner ADD MEMBER [github_action_user];
+```
+
+Please note that `db_owner` membership is required for this specific samples as authority to `ALTER DATABASE` is needed. If you just need to create, alter and drop objects, the following permission would be more than enough, without the need to be `db_owner`, which is a very high-privileged account.
+
+```sql
 ALTER ROLE db_ddladmin ADD MEMBER [github_action_user];
 ALTER ROLE db_datareader ADD MEMBER [github_action_user];
 ALTER ROLE db_datawriter ADD MEMBER [github_action_user];
