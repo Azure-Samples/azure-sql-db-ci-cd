@@ -1,4 +1,26 @@
+---
+page_type: sample
+languages:
+- tsql
+- sql
+products:
+- azure
+- azure-sql-database
+description: "Azure SQL Database CI/CD Pipeline with GitHub Actions"
+urlFragment: "azure-sql-db-ci-cd"
+---
+
 # Azure SQL Database CI/CD Pipeline with GitHub Actions
+
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+
+<!-- 
+Guidelines on README format: https://review.docs.microsoft.com/help/onboard/admin/samples/concepts/readme-template?branch=master
+
+Guidance on onboarding samples to docs.microsoft.com/samples: https://review.docs.microsoft.com/help/onboard/admin/samples/process/onboarding?branch=master
+
+Taxonomies for products and languages: https://review.docs.microsoft.com/new-hope/information-architecture/metadata/taxonomies?branch=master
+-->
 
 This sample shows how to use GitHub Actions to create a CI/CD pipeline using [DbUp](https://dbup.readthedocs.io/en/latest/), by sequentially applying `.sql` scripts to an existing database.
 
