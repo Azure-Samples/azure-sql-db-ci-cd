@@ -33,21 +33,23 @@ The connection will be something like:
 Server=tcp:<myserver>.database.windows.net,1433;Database=github_action_user;User ID=github_action_user;Password=S0meVery_Very+Str0ngPazzworD!;Encrypt=true;Connection Timeout=30;
 ```
 
-## Create a new empty GitHub repo
+## Create a fork of this GitHub repo
 
-Create a new empty GitHub repository. In Settings/Secrets create a secret named `AZURE_SQL_CONNECTION_STRING` and store the connection string of the Azure SQL database you created in the previous step.
+Create a fork of this repository.
 
-Clone the empty repository into a local folder.
+Once done, in Settings/Secrets create a secret named `AZURE_SQL_CONNECTION_STRING` and store the connection string of the Azure SQL database you created in the previous step.
 
-Copy the content of this folder (`11-DevOpsWithAzureSQL`) with the exception of the `.git` folder into the newly created folder. 
+In the forked repository go to the "Actions" tab and enable GitHub Actions.
 
-### Deploy the solution
+Now push your repository. As an example you can make a small change to the README right on GitHub, or add a new - even empty - file. Commit and push the change. The GitHub Action will start.
 
-Push all the local changes to the remote repository. 
+### GitHub Action
 
 The GitHub Action defined in `.github` folder will kick in, starting a two-step process to deploy and test database using [DbUp](http://dbup.github.io/) and NUnit. Deployment is done via the application in the `db-deploy` folder, while the tests are in the `db-test` folder.
 
 Monitor the GitHub action. If everything worked you will see the deployment done correctly, but the tests failing.
+
+This is expected as there is an error in the deployed stored procedure.
 
 ### Release a fix
 
