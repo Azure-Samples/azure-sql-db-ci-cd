@@ -1,6 +1,10 @@
 # Azure SQL Database CI/CD Pipeline with GitHub Actions
 
-TDB
+This sample shows how to use GitHub Actions to create a CI/CD pipeline using [DbUp](https://dbup.readthedocs.io/en/latest/), by sequentially applying `.sql` scripts to an existing database.
+
+This approach is different than the one provided by usage of [SqlPackage + .BacPac](https://docs.microsoft.com/en-us/sql/tools/sqlpackage?view=sql-server-ver15) or by Database Migrations (by [.NET EF Core](https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli) or [Python Django](https://docs.djangoproject.com/en/3.1/topics/migrations/) for example).
+
+To read more about this, look here: [Philosophy Behind DbUp](https://dbup.readthedocs.io/en/latest/philosophy-behind-dbup/).
 
 ## Create a new Azure SQL database
 
