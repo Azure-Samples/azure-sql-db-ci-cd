@@ -1,57 +1,64 @@
-# Project Name
+# Azure SQL Database CI/CD Pipeline with GitHub Actions
 
-(short, 1-3 sentenced, description of the project)
+TDB
 
-## Features
+## Create a new Azure SQL database
 
-This project framework provides the following features:
+Create a new empty Azure SQL database (if you need help: [Deploy Azure SQL Database ](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Demo-Deploy-Azure-SQL-Database-14-of-61)). Make sure you allow Azure Services to access the created database, as described here: [Allow Azure services](https://docs.microsoft.com/en-us/azure/azure-sql/database/network-access-controls-overview#allow-azure-services)
 
-* Feature 1
-* Feature 2
-* ...
+### Create a user used for running deployment and tests
 
-## Getting Started
+Create a user that has enough rights to execute all the needed statements used to deploy the database.  For example
 
-### Prerequisites
+```sql
+CREATE USER [github_action_user] WITH PASSWORD = 'S0meVery_Very+Str0ngPazzworD!';
+ALTER ROLE db_ddladmin ADD MEMBER [github_action_user];
+ALTER ROLE db_datareader ADD MEMBER [github_action_user];
+ALTER ROLE db_datawriter ADD MEMBER [github_action_user];
+```
 
-(ideally very short, if any)
+## Get Azure SQL Connection string
 
-- OS
-- Library version
-- ...
+Get the ADO.NET connection string to that database you just created, either via the Portal or [AZ CLI](https://docs.microsoft.com/en-us/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_show_connection_string) or [Powershell]().
 
-### Installation
+The connection will be something like:
 
-(ideally very short)
+```
+Server=tcp:<myserver>.database.windows.net,1433;Database=github_action_user;User ID=github_action_user;Password=S0meVery_Very+Str0ngPazzworD!;Encrypt=true;Connection Timeout=30;
+```
 
-- npm install [package name]
-- mvn install
-- ...
+## Create a new empty GitHub repo
 
-### Quickstart
-(Add steps to get up and running quickly)
+Create a new empty GitHub repository. In Settings/Secrets create a secret named `AZURE_SQL_CONNECTION_STRING` and store the connection string of the Azure SQL database you created in the previous step.
 
-1. git clone [repository clone url]
-2. cd [respository name]
-3. ...
+Clone the empty repository into a local folder.
 
+Copy the content of this folder (`11-DevOpsWithAzureSQL`) with the exception of the `.git` folder into the newly created folder. 
 
-## Demo
+### Deploy the solution
 
-A demo app is included to show how to use the project.
+Push all the local changes to the remote repository. 
 
-To run the demo, follow these steps:
+The GitHub Action defined in `.github` folder will kick in, starting a two-step process to deploy and test database using [DbUp](http://dbup.github.io/) and NUnit. Deployment is done via the application in the `db-deploy` folder, while the tests are in the `db-test` folder.
 
-(Add steps to start up the demo)
+Monitor the GitHub action. If everything worked you will see the deployment done correctly, but the tests failing.
 
-1.
-2.
-3.
+### Release a fix
 
-## Resources
+The stored procedure has a little bug, and in fact the test is failing. A new procedure with a fix is available in the `04-fixed-stored-procedure.sql.fix` files in the `db-deploy/sql` folder. Remove the `.fix` extension so that the new extension will be just `sql` and push this change to the repo.
 
-(Any additional resources or related projects)
+GitHub Action will start again, deploying only the new script and running the test again.
 
-- Link to supporting information
-- Link to similar sample
-- ...
+The test will now both succeed. Well done!
+
+## Debugging Deployment and Testing locally
+
+You can also run deployment and test locally, if you want or need to debug them. To do create a `.env` file starting from the `.env.template` file provided in each folder, and put the Azure SQL connection string, or a connection string to a local SQL Server database if you want to debug everything on-premises.
+
+Then debug the programs a usual using Visual Studio or Visual Studio Code.
+
+## Next Steps
+
+If you want a more complex scenario, you can apply what you have learned to the following sample, forking it into new repository and adding the GitHub action for a complete CI/CD deployment pipeline
+
+https://github.com/Azure-Samples/azure-sql-db-sync-api-change-tracking
