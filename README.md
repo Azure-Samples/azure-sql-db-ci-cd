@@ -32,7 +32,7 @@ To read more about this, look here: [Philosophy Behind DbUp](https://dbup.readth
 
 Create a new empty Azure SQL database (if you need help: [Deploy Azure SQL Database ](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Demo-Deploy-Azure-SQL-Database-14-of-61)). Make sure you allow Azure Services to access the created database, as described here: [Allow Azure services](https://docs.microsoft.com/en-us/azure/azure-sql/database/network-access-controls-overview#allow-azure-services)
 
-### Create a user used for running deployment and tests
+## Create a user used for running deployment and tests
 
 Create a user that has enough rights to execute all the needed statements used to deploy the database.  For example
 
@@ -69,7 +69,7 @@ In the forked repository go to the "Actions" tab and enable GitHub Actions.
 
 Now push your repository. As an example you can make a small change to the README right on GitHub, or add a new - even empty - file. Commit and push the change. The GitHub Action will start.
 
-### GitHub Action
+## GitHub Action
 
 The GitHub Action defined in `.github` folder will kick in, starting a two-step process to deploy and test database using [DbUp](http://dbup.github.io/) and NUnit. Deployment is done via the application in the `db-deploy` folder, while the tests are in the `db-test` folder.
 
@@ -77,7 +77,7 @@ Monitor the GitHub action. If everything worked you will see the deployment done
 
 This is expected as there is an error in the deployed stored procedure.
 
-### Release a fix
+## Release a fix
 
 The stored procedure has a little bug, and in fact the test is failing. A new procedure with a fix is available in the `04-fixed-stored-procedure.sql.fix` files in the `db-deploy/sql` folder. Remove the `.fix` extension so that the new extension will be just `sql` and push this change to the repo.
 
