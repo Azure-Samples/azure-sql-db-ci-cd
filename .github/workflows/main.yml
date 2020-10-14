@@ -1,9 +1,9 @@
 name: Deploy Database
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 jobs:
   Deploy:
     runs-on: ubuntu-latest
