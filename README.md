@@ -3,9 +3,11 @@ page_type: sample
 languages:
 - tsql
 - sql
+- csharp
 products:
 - azure
 - azure-sql-database
+- dotnet-core
 description: "Azure SQL Database CI/CD Pipeline with GitHub Actions"
 urlFragment: "azure-sql-db-ci-cd"
 ---
