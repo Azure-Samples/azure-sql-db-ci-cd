@@ -7,7 +7,7 @@ languages:
 products:
 - azure
 - azure-sql-database
-- dotnet-core
+- dotnet
 description: "Azure SQL Database CI/CD Pipeline with GitHub Actions"
 urlFragment: "azure-sql-db-ci-cd"
 ---
