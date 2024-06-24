@@ -11,7 +11,6 @@ products:
 description: "Azure SQL Database CI/CD Pipeline with GitHub Actions"
 urlFragment: "azure-sql-db-ci-cd"
 ---
-
 # Azure SQL Database CI/CD Pipeline with GitHub Actions
 
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
@@ -71,6 +70,8 @@ In the forked repository go to the "Actions" tab and enable GitHub Actions.
 
 Now push your repository. As an example you can make a small change to the README right on GitHub, or add a new - even empty - file. Commit and push the change. The GitHub Action will start.
 
+**Tried this.**
+
 ## GitHub Action
 
 The GitHub Action defined in `.github` folder will kick in, starting a two-step process to deploy and test database using [DbUp](http://dbup.github.io/) and NUnit. Deployment is done via the application in the `db-deploy` folder, while the tests are in the `db-test` folder.
@@ -98,4 +99,3 @@ Then debug the programs a usual using Visual Studio or Visual Studio Code.
 If you want a more complex scenario, you can apply what you have learned to the following sample, forking it into new repository and adding the GitHub action for a complete CI/CD deployment pipeline
 
 https://github.com/Azure-Samples/azure-sql-db-sync-api-change-tracking
-
