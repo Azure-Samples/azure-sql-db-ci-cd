@@ -13,7 +13,7 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '5.0.x' 
+        dotnet-version: '3.1.x'
     - name: Restore dependencies 
       working-directory: db-deploy
       run: dotnet restore      
@@ -31,7 +31,7 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '5.0.x' 
+        dotnet-version: '3.1.x'
     - name: Restore dependencies 
       working-directory: db-test
       run: dotnet restore      
