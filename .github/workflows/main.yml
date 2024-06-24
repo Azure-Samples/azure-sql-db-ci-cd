@@ -9,11 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1.4.0
+      uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '3.1.100' 
+        dotnet-version: '5.0.x' 
     - name: Restore dependencies 
       working-directory: db-deploy
       run: dotnet restore      
@@ -27,11 +27,11 @@ jobs:
     needs: [Deploy]
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1.4.0
+      uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '3.1.100' 
+        dotnet-version: '5.0.x 
     - name: Restore dependencies 
       working-directory: db-test
       run: dotnet restore      
