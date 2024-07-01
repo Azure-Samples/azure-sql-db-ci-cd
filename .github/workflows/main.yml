@@ -23,7 +23,7 @@ jobs:
     - name: Deploy
       working-directory: db-deploy
       env: 
-        ConnectionString: ${{ secrets.AZURE_SQL_CONNECTION_STRING_DEV }}        
+        ConnectionString: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}        
       run: dotnet run
   Test:
     runs-on: ubuntu-latest
@@ -41,7 +41,7 @@ jobs:
     - name: Run Tests
       working-directory: db-test
       env: 
-        ConnectionString: ${{ secrets.AZURE_SQL_CONNECTION_STRING_DEV }}        
+        ConnectionString: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}        
       run: dotnet test
       
       
