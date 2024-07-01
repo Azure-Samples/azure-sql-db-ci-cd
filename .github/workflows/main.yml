@@ -2,7 +2,6 @@ name: Deploy to Development and Test
 on:
   push:
     branches: [ main ]
-    paths: 'db-deploy/**'
   pull_request:
     branches: [ main ]
   # Allows you to run this workflow manually from the Actions tab
