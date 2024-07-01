@@ -1,0 +1,32 @@
+    
+# Manual Triggering: To deploy to production, go to the Actions tab, select the Deploy to Production workflow, and use the Run workflow dropdown to trigger the deployment manually. You will be prompted to type "deploy" to confirm the production deployment.
+# This approach ensures that deployment to production requires a manual confirmation, adding a layer of safety to prevent accidental deployments.
+name: Deploy to Production
+
+on:
+    workflow_dispatch:
+        inputs:
+            deploy:
+                description: 'Type "deploy" to confirm production deployment'
+                required: true
+                default: ''
+
+jobs:
+    Deploy_prd:
+        runs-on: ubuntu-latest
+        if: github.event.inputs.deploy == 'deploy'
+        steps:
+        - name: Checkout Repo
+          uses: actions/checkout@v4
+        - name: Setup .NET Core
+          uses: actions/setup-dotnet@v4
+          with:
+              dotnet-version: '5.0.x' 
+        - name: Restore dependencies 
+          working-directory: db-deploy
+          run: dotnet restore      
+        - name: Deploy to prd
+          working-directory: db-deploy
+          env: 
+                ConnectionString: ${{ secrets.AZURE_SQL_CONNECTION_STRING_PRD }}        
+          run: dotnet run
