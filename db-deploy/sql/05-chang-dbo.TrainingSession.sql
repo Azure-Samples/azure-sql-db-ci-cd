@@ -15,5 +15,5 @@ GO
 -- sp_rename 'dbo.TrainingSession.[Calory]', 'Calories', 'COLUMN';   
 sp_rename 'dbo.TrainingSession.[Calories]', 'Calory', 'COLUMN';   
 GO
-sp_rename 'dbo.TrainingSession.[AdjustedDistance]', 'TotalDistance', 'COLUMN';   
-GO
+-- sp_rename 'dbo.TrainingSession.[TotalDistance]', 'AdjustedDistance', 'COLUMN';   
+-- GO
