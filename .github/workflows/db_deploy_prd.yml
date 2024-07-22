@@ -3,7 +3,7 @@
 name: DB-Deploy-MDW-PRD
 
 # Controls when the workflow will run
-# on:
+on:
 #    workflow_run:
 #      workflows: ["Deploy-MDW-DEV"]
 #      branches: [ "main"]
