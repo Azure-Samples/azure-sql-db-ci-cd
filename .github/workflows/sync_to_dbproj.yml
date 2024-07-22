@@ -1,0 +1,31 @@
+name: Sync-DB-to-SSDT-Project
+
+on:
+  workflow_dispatch:
+
+jobs:
+  sync_database:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout SSDT project
+      uses: actions/checkout@v3
+
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Install SQLPackage
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y unzip
+        curl -L https://aka.ms/sqlpackage-linux -o sqlpackage.zip
+        unzip sqlpackage.zip -d /usr/local/bin
+        chmod +x /usr/local/bin/sqlpackage
+
+    - name: Sync Azure SQL Database to SSDT Project
+      run: |
+        sqlpackage /a:Extract /tf:"./SSDTProject.dacpac" /scs:"${{ secrets.AZURE_SQL_CONNECTION_PRD }}"
+        sqlpackage /a:Publish /sf:"./SSDTProject.dacpac" /tcs:"Your SSDT project connection string" /p:CreateNewDatabase=True
+      env:
+        AZURE_SQL_CONNECTION_PRD: ${{ secrets.AZURE_SQL_CONNECTION_PRD }}
