@@ -14,4 +14,8 @@ CREATE TABLE [dbo].[TrainingSession] (
 
 
 GO
+ALTER TABLE [dbo].[TrainingSession] ENABLE CHANGE_TRACKING WITH (TRACK_COLUMNS_UPDATED = OFF);
+
+
+GO
 

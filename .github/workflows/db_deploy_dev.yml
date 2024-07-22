@@ -4,11 +4,13 @@ name: DB-Deploy-MDW-DEV
 
 # Controls when the workflow will run
 on:
-  workflow_run:
-    workflows: ["Update-MDW-DEV"]
-    branches: [ "main"]
-    types: 
-     - completed
+  # pull_request:
+  #   branches: [ "main" ]
+  # workflow_run:
+  #   workflows: ["Update-MDW-DEV"]
+  #   branches: [ "main"]
+  #   types: 
+  #    - completed
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -29,10 +31,11 @@ jobs:
     - uses: azure/sql-action@v2.2.1
       with:
         connection-string: ${{ secrets.AZURE_SQL_CONNECTION_DEV}}
-        path: './DatabaseProject_DW_EDW/DatabaseProject_DW_EDW.sqlproj'
+        path: './DatabaseProject/DatabaseProject.sqlproj'
         action: 'Publish'
+        publish-profile: './DatabaseProject/YourPublishProfile.publish.xml' # Specify the path to your publish profile
         build-arguments: '-c Release'                 # Optional build options passed to dotnet build
-        arguments: '/p:DropObjectsNotInSource=false /p:ExcludeObjectTypes=Logins;Users;DatabaseRoles;RoleMembership'   # Optional properties and parameters for SqlPackage Publish
+        # arguments: '/p:DropObjectsNotInSource=false /p:ExcludeObjectTypes=Logins;Users;DatabaseRoles;RoleMembership'   # Optional properties and parameters for SqlPackage Publish
 
     # Azure logout 
     - name: logout
