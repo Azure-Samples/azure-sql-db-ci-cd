@@ -1,6 +1,6 @@
 {
     "github-actions.workflows.pinned.workflows": [
-        ".github/workflows/app_deploy_dev.yml"
+        ".github/workflows/main.yml"
         // ".github/workflows/app_deploy_prd.yml",
         // ".github/workflows/db_deploy_dev.yml",
         // ".github/workflows/db_deploy_prd.yml"
