@@ -1,0 +1,65 @@
+
+
+
+
+
+CREATE VIEW [data].[RK_Rejsebillet_PeriodProduct_NoLock]
+AS
+(
+SELECT  [SourceSystemCode]
+      ,[SourceSystemEntryRef]
+      ,[OrderEncryptedID]
+      ,[AccountingEncryptedID]
+      ,[TicketEncryptedID]
+      ,[SeasonPassID]
+      ,[ProductCode]
+      ,[ProductName]
+      ,[SalesDT]
+      ,[AccountingDT]
+      ,[ZoneNrLow]
+      ,[ZoneNrHigh]
+      ,[SeasonPassZones]
+      ,[ZonesPayed]
+      ,[SeasonPassStatus]
+      ,[PassengerGroupType1]
+      ,[PsedoFareset]
+      ,[SeasonPassCategory]
+      ,[ValidityStartDT]
+      ,[ValidityEndDT]
+      ,[Model]
+      ,[DelingsRegel]
+      ,[Price]
+      ,[RevenueShare]
+      ,[RBindt_Arriva]
+      ,[RBindt_GoCollectiv]
+      ,[RBindt_NT]
+      ,[RBindt_Midttrafik]
+      ,[RBindt_2060]
+      ,[RBindt_MoviaS_]
+      ,[RBindt_MoviaH]
+      ,[RBindt_Sydtrafik]
+      ,[RBindt_Metro]
+      ,[RBindt_MoviaV]
+      ,[RBindt_Movia]
+      ,[RBindt_DSB]
+      ,[RBindt_STog]
+      ,[RBindt_Fynbus]
+      ,[Amount]
+      ,[ValidityDays]
+      ,[EndDT]
+      ,[PTOOUT]
+      ,[OpgDT]
+      ,[ZoneList]
+      ,[PaymentReceivedFLG]
+      ,[PaymentChangeDTTM]
+      ,[MediaTypeCode]
+      ,[SalesChannelCode]
+      ,[Inserted]
+      ,[Updated]
+      ,[Hash]
+  FROM [data].[RK_Rejsebillet_PeriodProduct]
+
+ WITH (NOLOCK));
+
+GO
+

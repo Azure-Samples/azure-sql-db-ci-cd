@@ -1,0 +1,41 @@
+CREATE TABLE [dim].[LineDirection] (
+    [LineDirectionKey]                 INT            IDENTITY (1, 1) NOT FOR REPLICATION NOT NULL,
+    [LineKey]                          INT            NOT NULL,
+    [ValidFromDateKey]                 INT            NOT NULL,
+    [ValidToDateKey]                   INT            NOT NULL,
+    [IsCurrent]                        BIT            NOT NULL,
+    [SourceSystemCode]                 NVARCHAR (20)  NOT NULL,
+    [SourceSystemEntryId]              BIGINT         NULL,
+    [LineGid]                          NUMERIC (16)   NULL,
+    [LineNumber]                       INT            NULL,
+    [LineDesignation]                  NVARCHAR (8)   NULL,
+    [LineName]                         NVARCHAR (250) NULL,
+    [LineDisplayIndex]                 INT            NOT NULL,
+    [LineDisplayName]                  NVARCHAR (250) NOT NULL,
+    [LineDirectionGid]                 NUMERIC (16)   NULL,
+    [LineDirectionCode]                NVARCHAR (20)  NULL,
+    [LineDirectionName]                NVARCHAR (250) NULL,
+    [LineDirectionDisplayName]         NVARCHAR (250) NOT NULL,
+    [ValidFromDate]                    DATE           NULL,
+    [ValidToDate]                      DATE           NULL,
+    [LineDirectionDisplayIndex]        INT            NOT NULL,
+    [RateAreaCombinationKey]           INT            CONSTRAINT [DF_LineDirection_RateAreaCombinationKey] DEFAULT ((-1)) NOT NULL,
+    [ProductGroupKey]                  INT            CONSTRAINT [DF_LineDirection_ProductGroupKey] DEFAULT ((-1)) NOT NULL,
+    [RateAreaCombinationCode]          NVARCHAR (20)  NULL,
+    [RateAreaCombinationDisplayIndex]  INT            NULL,
+    [RateAreaCombinationDisplayName]   NVARCHAR (250) NULL,
+    [ProductGroupCode]                 NVARCHAR (20)  NULL,
+    [ProductGroupName]                 NVARCHAR (250) NULL,
+    [ProductGroupDisplayIndex]         INT            NULL,
+    [ProductGroupDisplayName]          NVARCHAR (250) NULL,
+    [DefaultTransportModeKey]          INT            CONSTRAINT [DF_LineDirection_DefaultTransportModeKey] DEFAULT ((-1)) NOT NULL,
+    [DefaultTransportModeCode]         NVARCHAR (20)  NULL,
+    [DefaultTransportModeName]         NVARCHAR (250) NULL,
+    [DefaultTransportModeDisplayIndex] INT            NULL,
+    [DefaultTransportModeDisplayName]  NVARCHAR (250) NULL,
+    CONSTRAINT [PK_LineDirection] PRIMARY KEY CLUSTERED ([LineDirectionKey] ASC)
+);
+
+
+GO
+

@@ -1,0 +1,43 @@
+CREATE TABLE [data].[RT_SectionOfInterest_ChangeAnnouncement] (
+    [SourceSystemEntryRef]         NVARCHAR (250)    NOT NULL,
+    [DateOfAnnouncement]           DATE              NOT NULL,
+    [DateOfPhaseImpact]            DATE              NOT NULL,
+    [PhaseType]                    NVARCHAR (3)      NOT NULL,
+    [RouteLink]                    NVARCHAR (25)     NOT NULL,
+    [LineNumber]                   INT               NOT NULL,
+    [SectionOfInteresCode]         NVARCHAR (25)     NOT NULL,
+    [ChangedRouteLinkText]         NVARCHAR (250)    NOT NULL,
+    [RouteStartPoint]              INT               NOT NULL,
+    [RouteEndPoint]                INT               NOT NULL,
+    [SectionStartPoint]            INT               NOT NULL,
+    [SectionEndPoint]              INT               NOT NULL,
+    [RouteStartPointName]          NVARCHAR (100)    NOT NULL,
+    [RouteEndPointName]            NVARCHAR (100)    NOT NULL,
+    [SectionStartPointName]        NVARCHAR (100)    NOT NULL,
+    [SectionEndPointName]          NVARCHAR (100)    NOT NULL,
+    [RouteStartPointDisplayName]   NVARCHAR (100)    NOT NULL,
+    [RouteEndPointDisplayName]     NVARCHAR (100)    NOT NULL,
+    [SectionStartPointDisplayName] NVARCHAR (100)    NOT NULL,
+    [SectionEndPointDisplayName]   NVARCHAR (100)    NOT NULL,
+    [RouteStartPointGeography]     [sys].[geography] NOT NULL,
+    [RouteEndPointGeography]       [sys].[geography] NOT NULL,
+    [SectionStartPointGeography]   [sys].[geography] NOT NULL,
+    [SectionEndPointGeography]     [sys].[geography] NOT NULL,
+    [RouteStartPointCoordinate]    NVARCHAR (41)     NOT NULL,
+    [RouteEndPointCoordinate]      NVARCHAR (41)     NOT NULL,
+    [RouteLineString]              NVARCHAR (80)     NOT NULL,
+    [SectionStartPointCoordinate]  NVARCHAR (41)     NOT NULL,
+    [SectionEndPointCoordinate]    NVARCHAR (41)     NOT NULL,
+    [SectionLineString]            NVARCHAR (80)     NOT NULL,
+    [ChangedRouteLinkTextLong]     NVARCHAR (500)    NOT NULL,
+    [RouteGeographyLine]           [sys].[geography] NOT NULL,
+    [SectionGeographyLine]         [sys].[geography] NOT NULL,
+    [IsAnnounced]                  BIT               NULL,
+    [DateOfAnnouncementMail]       DATETIME2 (3)     NULL,
+    [LastChangeDateTime]           DATETIME2 (0)     NOT NULL,
+    CONSTRAINT [PK_RT_SectionOfInterest_ChangeAnnouncement] PRIMARY KEY NONCLUSTERED ([SourceSystemEntryRef] ASC)
+);
+
+
+GO
+

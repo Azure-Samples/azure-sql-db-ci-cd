@@ -1,0 +1,41 @@
+# This is a basic workflow to help you get started with Actions
+
+name: DB-Deploy-MDW-PRD
+
+# Controls when the workflow will run
+on:
+#    workflow_run:
+#      workflows: ["Deploy-MDW-DEV"]
+#      branches: [ "main"]
+#      types: 
+#       - completed
+   # Allows you to run this workflow manually from the Actions tab
+   workflow_dispatch:
+  
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v3  
+    - uses: azure/login@v1                            # Azure login required to add a temporary firewall rule
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS_PRD}} 
+    - uses: azure/sql-action@v2.2.1
+      with:
+        connection-string: ${{ secrets.AZURE_SQL_CONNECTION_PRD}}
+        path: './DatabaseProject/DatabaseProject.sqlproj'
+        action: 'Publish'
+        build-arguments: '-c Release'                 # Optional build options passed to dotnet build
+        arguments: '/p:DropObjectsNotInSource=false /p:ExcludeObjectTypes=Logins;Users;DatabaseRoles'   # Optional properties and parameters for SqlPackage Publish
+
+    # Azure logout 
+    - name: logout
+      run: |
+         az logout

@@ -23,11 +23,15 @@ namespace AzureSQLDevelopers.Database.Deploy
 
             if (!result.Successful)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(result.Error);
+                Console.ResetColor();
                 return -1;
             }
 
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Success!");
+            Console.ResetColor();
             return 0;
         }
     }

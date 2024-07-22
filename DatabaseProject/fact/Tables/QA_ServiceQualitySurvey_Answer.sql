@@ -1,0 +1,40 @@
+CREATE TABLE [fact].[QA_ServiceQualitySurvey_Answer] (
+    [AnswerKey]               BIGINT         IDENTITY (1, 1) NOT NULL,
+    [DateKey]                 INT            NOT NULL,
+    [TimeKey]                 INT            NOT NULL,
+    [AgeKey]                  INT            NOT NULL,
+    [GenderKey]               INT            NOT NULL,
+    [DefaultTransportModeKey] INT            CONSTRAINT [DF_QA_ServiceQualitySurvey_Answer_DefaultTransportModeKey] DEFAULT ((-1)) NOT NULL,
+    [LineKey]                 INT            NOT NULL,
+    [TimeSpanKey]             INT            NOT NULL,
+    [ContractorKey]           INT            NOT NULL,
+    [OperatingDayTypeKey]     INT            NOT NULL,
+    [PurposeKey]              INT            NOT NULL,
+    [FrequencyKey]            INT            NOT NULL,
+    [PlacementKey]            INT            NOT NULL,
+    [LanguageKey]             INT            NOT NULL,
+    [FromStopPointNumberKey]  INT            NOT NULL,
+    [SurveyQuestionKey]       INT            NOT NULL,
+    [SurveyAnswerKey]         INT            NOT NULL,
+    [InterviewTypeKey]        INT            NOT NULL,
+    [DataQualityTypeKey]      INT            NOT NULL,
+    [FileId]                  INT            NOT NULL,
+    [SourceSystemCode]        NVARCHAR (20)  NOT NULL,
+    [SourceSystemEntryId]     BIGINT         NULL,
+    [InterviewId]             BIGINT         NULL,
+    [InterviewerId]           INT            NULL,
+    [InterviewerStartStopNo]  INT            NULL,
+    [InterviewerEndStopNo]    INT            NULL,
+    [RespondentId]            BIGINT         NULL,
+    [AnswerValue]             INT            NULL,
+    [DatedVehicleJourneyId]   BIGINT         NULL,
+    [JourneyRef]              CHAR (18)      NULL,
+    [InterviewStartLatitude]  DECIMAL (8, 6) CONSTRAINT [DF_QA_ServiceQualitySurvey_Answer_InterviewStartLatitude_1] DEFAULT ((-1)) NULL,
+    [InterviewStartLongitude] DECIMAL (8, 6) CONSTRAINT [DF_QA_ServiceQualitySurvey_Answer_InterviewStartLongitude_1] DEFAULT ((-1)) NULL,
+    [SourceSystemEntryRef]    NVARCHAR (225) NULL,
+    CONSTRAINT [PK_QA_ServiceQualitySurvey_Answer] PRIMARY KEY CLUSTERED ([AnswerKey] ASC)
+);
+
+
+GO
+

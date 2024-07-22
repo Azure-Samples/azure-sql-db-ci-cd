@@ -1,0 +1,41 @@
+CREATE TABLE [stg_fact].[RT_SignalPriority_ITS_Activation] (
+    [DateKey]                      INT           NULL,
+    [ActivationStartTimeKey]       INT           NULL,
+    [ActivationEndTimeKey]         INT           NULL,
+    [LineKey]                      INT           NULL,
+    [LineDirectionKey]             INT           NULL,
+    [VehicleKey]                   INT           NULL,
+    [ActivationPointKey]           INT           NULL,
+    [SignalKey]                    INT           NULL,
+    [ActivatedActivationTypeKey]   INT           NULL,
+    [DeactivatedActivationTypeKey] INT           NULL,
+    [MunicipalityKey]              INT           NULL,
+    [JourneyRef]                   CHAR (18)     NULL,
+    [LightProgramKey]              CHAR (12)     NULL,
+    [PrioritizedKey]               INT           NULL,
+    [SignalLightColourKey]         INT           NULL,
+    [ForcedDeactivatedKey]         INT           NULL,
+    [FirstActivatedDateKey]        INT           NULL,
+    [FirstActivatedTimeKey]        INT           NULL,
+    [IsReactivated]                BIT           NULL,
+    [IsFinal]                      BIT           NULL,
+    [NumberOfRows]                 INT           NULL,
+    [SourceSystemCode]             VARCHAR (20)  NULL,
+    [ActivationStartTime]          TIME (0)      NULL,
+    [ActivationEndTime]            TIME (0)      NULL,
+    [Line]                         INT           NULL,
+    [LineDirection]                INT           NULL,
+    [Vehicle]                      INT           NULL,
+    [ActivatedPubMPN]              INT           NULL,
+    [DeactivatedPubMPN]            INT           NULL,
+    [Signal]                       INT           NULL,
+    [JourneyNo]                    INT           NULL,
+    [LightProgram]                 INT           NULL,
+    [Priority]                     NVARCHAR (3)  NULL,
+    [SignalLightColour]            NVARCHAR (4)  NULL,
+    [StartActivationTimestamp]     DATETIME2 (0) NULL
+);
+
+
+GO
+

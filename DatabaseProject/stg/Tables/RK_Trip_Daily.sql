@@ -1,0 +1,40 @@
+CREATE TABLE [stg].[RK_Trip_Daily] (
+    [TripRef]                    VARCHAR (20)    NOT NULL,
+    [TripDate]                   DATE            NULL,
+    [TripDate_In]                VARCHAR (10)    NULL,
+    [TripStartTime]              TIME (0)        NULL,
+    [TripStartTime_In]           VARCHAR (10)    NULL,
+    [TripEndTime]                TIME (0)        NULL,
+    [TripEndTime_In]             VARCHAR (10)    NULL,
+    [TripPrice]                  NUMERIC (18, 2) NULL,
+    [TripPrice_In]               VARCHAR (20)    NULL,
+    [TotalCount]                 TINYINT         NULL,
+    [YoungsterCount]             TINYINT         NULL,
+    [AdultCount]                 TINYINT         NULL,
+    [ChildCount]                 TINYINT         NULL,
+    [BicycleCount]               TINYINT         NULL,
+    [Handicap]                   TINYINT         NULL,
+    [DogCount]                   TINYINT         NULL,
+    [SeniorCount]                TINYINT         NULL,
+    [ZoneCount]                  SMALLINT        NULL,
+    [PaidZoneCount]              SMALLINT        NULL,
+    [PaidZoneCount_In]           VARCHAR (10)    NULL,
+    [DiscountLevel]              TINYINT         NULL,
+    [StartStopPointId]           INT             NULL,
+    [StartStopPointName]         VARCHAR (255)   NULL,
+    [EndStopPointId]             INT             NULL,
+    [EndStopPointName]           VARCHAR (255)   NULL,
+    [SoloCombiTrip]              VARCHAR (20)    NULL,
+    [CardType]                   VARCHAR (20)    NULL,
+    [Region]                     VARCHAR (20)    NULL,
+    [PtoCombination]             VARCHAR (50)    NULL,
+    [RateSet]                    VARCHAR (255)   NULL,
+    [RateAreaCombination]        VARCHAR (255)   NULL,
+    [ValidationModelCombination] VARCHAR (20)    NULL,
+    [ModalCombination]           VARCHAR (20)    NULL,
+    [RouteCombination]           VARCHAR (255)   NULL
+);
+
+
+GO
+

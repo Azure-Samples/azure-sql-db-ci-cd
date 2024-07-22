@@ -7,7 +7,7 @@ using System;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace AzureSQLDevelopers.Database
+namespace AzureSQLDevelopers.Database.Test
 {
     public class Tests
     {
