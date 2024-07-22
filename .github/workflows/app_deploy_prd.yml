@@ -1,7 +1,7 @@
     
 # Manual Triggering: To deploy to production, go to the Actions tab, select the Deploy to Production workflow, and use the Run workflow dropdown to trigger the deployment manually. You will be prompted to type "deploy" to confirm the production deployment.
 # This approach ensures that deployment to production requires a manual confirmation, adding a layer of safety to prevent accidental deployments.
-name: Deploy to Production
+name: APP Deploy to Production
 
 on:
     workflow_dispatch:

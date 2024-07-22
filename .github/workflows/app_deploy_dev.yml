@@ -1,4 +1,4 @@
-name: Deploy to Development and Test
+name: APP Deploy to Development and Test
 on:
   push:
     branches: [ main ]
