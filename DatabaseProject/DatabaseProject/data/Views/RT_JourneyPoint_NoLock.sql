@@ -1,0 +1,53 @@
+
+
+create view [data].[RT_JourneyPoint_NoLock]
+as(
+select
+    [JourneyPointRef]
+   ,[JourneyRef]
+   ,[SourceSystemCode]
+   ,[SourceSystemEntryRef]
+   ,[OperatingDayDate]
+   ,[LineNumber]
+   ,[LineDirectionCode]
+   ,[JourneyNumber]
+   ,[SequenceNumber]
+   ,[JourneyPatternPointGid]
+   ,[IsStopPoint]
+   ,[StopPointId]
+   ,[StopPointOwner]
+   ,[StopPointNumber]
+   ,[StopPointSequenceNumber]
+   ,[IsTimingPoint]
+   ,[TimingPointSequenceNumber]
+   ,[ArrivalType]
+   ,[DepartureType]
+   ,[PlannedJourneyDistanceMeters]
+   ,[PlannedArrivalDateTime]
+   ,[PlannedDepartureDateTime]
+   ,[PlannedLineDirectionHeadwaySeconds]
+   ,[ObservedJourneyDistanceMeters]
+   ,[ObservedArrivalDateTime]
+   ,[ObservedDepartureDateTime]
+   ,[ObservedLineDirectionHeadwaySeconds]
+   ,[ObservedVehicleId]
+   ,[EstimatedArrivalDateTimeFinal]
+   ,[EstimatedDepartureDateTimeFinal]
+   ,[TargetArrivalDateTimeFinal]
+   ,[TargetDepartureDateTimeFinal]
+   ,[ArrivalStateFinal]
+   ,[DepartureStateFinal]
+   ,[TotalCheckInCount]
+   ,[TotalCheckOutCount]
+   ,[TotalCashTicketCount]
+   ,[TotalCashTicketAmount]
+   ,[IsCanceled]
+   ,[CancelCauseCode]
+   ,[OutlierClassification]
+   ,[EarliestCheckInTime]
+   ,[LatestCheckInTime]
+from
+    [data].[RT_JourneyPoint] (nolock));
+
+GO
+

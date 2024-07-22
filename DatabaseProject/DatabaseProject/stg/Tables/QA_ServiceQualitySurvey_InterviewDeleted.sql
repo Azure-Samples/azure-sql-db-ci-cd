@@ -1,0 +1,31 @@
+CREATE TABLE [stg].[QA_ServiceQualitySurvey_InterviewDeleted] (
+    [Id]                     BIGINT          NOT NULL,
+    [SourceFileName]         NVARCHAR (255)  NOT NULL,
+    [InterviewerId]          BIGINT          NULL,
+    [RespondentId]           BIGINT          NOT NULL,
+    [Time]                   DATETIME        NULL,
+    [Age]                    INT             NULL,
+    [Gender]                 INT             NULL,
+    [LineNumber]             INT             NULL,
+    [VehicleRef]             INT             NOT NULL,
+    [ContractorCode]         NVARCHAR (255)  NULL,
+    [GarageCode]             NVARCHAR (255)  NULL,
+    [ContractCode]           NVARCHAR (255)  NULL,
+    [DurationInMinutes]      INT             NULL,
+    [Purpose]                INT             NULL,
+    [Frequency]              INT             NULL,
+    [Placement]              INT             NULL,
+    [Language]               INT             NULL,
+    [FromStopPointId]        INT             NULL,
+    [InterviewerStartStopId] INT             NULL,
+    [InterviewerEndStopId]   INT             NULL,
+    [StartLongitude]         DECIMAL (10, 6) NULL,
+    [StartLatitude]          DECIMAL (10, 6) NULL,
+    [ModifiedAt]             DATETIME        NOT NULL,
+    [DatedVehicleJourneyId]  BIGINT          NULL,
+    [JourneyRef]             CHAR (18)       NULL
+);
+
+
+GO
+
