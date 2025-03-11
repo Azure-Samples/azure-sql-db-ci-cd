@@ -2,13 +2,13 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>AzureSQLDevelopers.Database.Deploy</RootNamespace>
   </PropertyGroup>
 
  <ItemGroup>
-    <PackageReference Include="DbUp" Version="4.3.0" />
-    <PackageReference Include="DotNetEnv" Version="1.4.0" />
+    <PackageReference Include="DbUp" Version="5.0.41" />
+    <PackageReference Include="DotNetEnv" Version="3.1.1" />
   </ItemGroup>
 
   <ItemGroup>

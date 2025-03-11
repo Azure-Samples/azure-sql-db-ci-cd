@@ -27,7 +27,7 @@ namespace AzureSQLDevelopers.Database
             {
                 var result = conn.ExecuteScalar<string>("web.get_trainingsessionsync", new { @json = "{}" }, commandType: CommandType.StoredProcedure);
                 var jsonResult = JObject.Parse(result);
-                Assert.AreEqual("Full", (string)jsonResult.SelectToken("Metadata.Sync.Type"));
+                Assert.Equals("Full", (string)jsonResult.SelectToken("Metadata.Sync.Type"));
             }            
         }           
     }
