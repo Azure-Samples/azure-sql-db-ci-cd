@@ -3,9 +3,11 @@ page_type: sample
 languages:
 - tsql
 - sql
+- csharp
 products:
 - azure
 - azure-sql-database
+- dotnet
 description: "Azure SQL Database CI/CD Pipeline with GitHub Actions"
 urlFragment: "azure-sql-db-ci-cd"
 ---
@@ -96,3 +98,4 @@ Then debug the programs a usual using Visual Studio or Visual Studio Code.
 If you want a more complex scenario, you can apply what you have learned to the following sample, forking it into new repository and adding the GitHub action for a complete CI/CD deployment pipeline
 
 https://github.com/Azure-Samples/azure-sql-db-sync-api-change-tracking
+
